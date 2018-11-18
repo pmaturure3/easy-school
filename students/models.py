@@ -60,10 +60,24 @@ class FeeType(models.Model):
     display_name= models.CharField('Displayed Name', max_length=50, blank=False)
     amount      = models.PositiveIntegerField()
 
+    def __str__(self):
+        return f'{self.name} ({self.amount})'
+
 class FeeGroup(models.Model):
     name        = models.CharField('Name', max_length=50, blank=False)
     display_name= models.CharField('Displayed Name', max_length=50, blank=False)
     fee_types   = models.ManyToManyField(FeeType,)
+
+    def __str__(self):
+        return f'{self.name}'
+    
+    def calculate_total_fee(self):
+        sum = 0
+        for fee in self.fee_types.all():
+            sum += fee.amount
+        return sum
+    calculate_total_fee.short_description = 'Total Fee'
+            
 
 class StudentFee(models.Model):
     """ Datatabase Model for student fees"""
