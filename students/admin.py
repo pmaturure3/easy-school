@@ -10,7 +10,6 @@ from .forms import StudentFeeAdd
 from .models import Student, StudentFee, FeeGroup, FeeType#, FeeSummary
 
 # Register your models here.
-admin.site.register(FeeGroup)
 admin.site.register(FeeType)
 
 admin.site.site_header = "My School Admin"
@@ -175,6 +174,15 @@ class StudentFeeAdmin(admin.ModelAdmin):
         'date_submitted',
     )
 
+
+@admin.register(FeeGroup)
+class FeeGroupAdmin(admin.ModelAdmin):
+    list_display = (
+        'name',
+        'display_name',
+        'calculate_total_fee',
+    )
+    filter_horizontal = ('fee_types', )
 
 # @admin.register(FeeSummary)
 # class FeeSummary(admin.ModelAdmin):
