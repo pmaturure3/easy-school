@@ -24,7 +24,7 @@ SECRET_KEY = 'dpe26%-k#-q^gajj1g8kzurcq%)1_at&u6ne5$*n#zo%#50lcs'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'localhost','45.79.148.116']
 
 # Application definition
 
@@ -143,4 +143,4 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Django_debug_toolbar settings
-INTERNAL_IPS = ('127.0.0.1',)
+INTERNAL_IPS = ('127.0.0.1', '45.79.148.116')
